@@ -1,0 +1,60 @@
+﻿@model KLoveTest.Models.Employees
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </div>
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.FName)
+        </div>
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.FName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.LName)
+        </div>
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.LName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </div>
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.Phone)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </div>
+        <div>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.City) @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zipcode)
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+        <a asp-action="Index">Employee List</a>
+    </div>

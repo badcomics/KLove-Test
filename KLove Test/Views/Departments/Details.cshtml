@@ -1,0 +1,62 @@
+﻿@model KLoveTest.Models.Departments
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Departments</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            @Html.DisplayNameFor(model => model.DepartmentName): @Html.DisplayFor(model => model.DepartmentName)
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+            <a asp-action="Delete" asp-route-id="@Model.id">Delete</a>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="p-md-3"><h5>Employees</h5></div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Employees != null)
+            {
+                @foreach (var item in Model.Employees)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LName)
+                        </td>
+                        <td>
+                            <a asp-action="..\Employees\Details" asp-route-id="@item.id">Details</a> |
+                            <a asp-action="..\Employees\Edit" asp-route-id="@item.id">Edit</a> |
+                            <a asp-action="..\Employees\Delete" asp-route-id="@item.id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Index">Back to Department List</a>
+</div>
